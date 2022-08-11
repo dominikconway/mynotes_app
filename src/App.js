@@ -1,5 +1,6 @@
 import NotesList from "./components/NotesList"
 import AddNote from "./components/AddNote"
+import Search from './components/Search'
 import { useState } from "react"
 import { nanoid } from 'nanoid'
 
@@ -44,6 +45,7 @@ const deleteNote = (id) => {
 }
   return (
     <div className="container">
+      <Search />
       <NotesList notes={notes}
        handleAddNote={addNote}
        handleDeleteNote={deleteNote}/>
