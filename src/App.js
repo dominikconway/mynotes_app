@@ -1,4 +1,5 @@
 import NotesList from "./components/NotesList"
+import AddNote from "./components/AddNote"
 import { useState } from "react"
 import { nanoid } from 'nanoid'
 
@@ -25,9 +26,20 @@ const App = () => {
     date: '2/04/2021'
   }
 ])
+
+const addNote = (text) => {
+  const date = new Date()
+  const newNote = {
+    id: nanoid(),
+    text: text,
+    date: date.toLocaleDateString()
+  }
+  const newNotes = [...notes, newNote]
+  setNotes(newNotes)
+}
   return (
     <div className="container">
-      <NotesList notes={notes} />
+      <NotesList notes={notes} handleAddNote={addNote} />
    
      </div>
     )
